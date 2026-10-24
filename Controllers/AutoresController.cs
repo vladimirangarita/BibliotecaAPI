@@ -44,6 +44,15 @@ namespace BibliotecaAPI.Controllers
             return autor;
         }
 
+        [HttpGet("{nombre:alpha}")]
+        public async Task<IEnumerable<Autor>> Get( string nombre)
+        {
+            //var autor = await context.Autores.Where(x => x.Nombre.Contains(nombre));
+        
+                return await context.Autores.Where(x => x.Nombre.Contains(nombre)).ToListAsync();
+          
+        
+        }
 
         [HttpPost]
         public async Task<ActionResult> Post(Autor autor)
